@@ -1,5 +1,8 @@
 using _0._Localization.Interfaces;
 using _0._Localization.Scripts;
+using _0._Localization.Scripts.Repository;
+using _1._Logs.Scripts;
+using _1._Logs.Scripts.Interfaces;
 using UnityEngine;
 using Zenject;
 
@@ -12,6 +15,7 @@ namespace Installers
             BindLocalizationSystem();
             BindEnglishRepository();
             BindRussianRepository();
+            BindLogSystem();
         }
         private void BindLocalizationSystem()
         {
@@ -22,7 +26,6 @@ namespace Installers
                 .FromComponentsInHierarchy()
                 .AsSingle();
         }
-
         private void BindEnglishRepository()
         {
             Debug.Log("Bind English Repository");
@@ -39,6 +42,15 @@ namespace Installers
                 .Bind<ILocalizationRepository>()
                 .WithId("Russian")
                 .To<LocalizationRussianRepository>()
+                .AsSingle();
+        }
+
+        private void BindLogSystem()
+        {
+            Debug.Log("Bind Log System");
+            Container
+                .Bind<ILogSystem>()
+                .To<LogSystem>()
                 .AsSingle();
         }
     }
