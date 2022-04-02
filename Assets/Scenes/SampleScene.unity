@@ -178,7 +178,7 @@ GameObject:
   - component: {fileID: 295726239}
   - component: {fileID: 295726238}
   m_Layer: 5
-  m_Name: ne ebu
+  m_Name: NE EBU
   m_TagString: Untagged
   m_Icon: {fileID: 0}
   m_NavMeshLayer: 0
@@ -655,7 +655,7 @@ MonoBehaviour:
   m_Script: {fileID: 11500000, guid: c469d010baeb0684c82114407265e5da, type: 3}
   m_Name: 
   m_EditorClassIdentifier: 
-  currentLanguage: 0
+  currentLanguages: 0
   ImageLanguage:
   - {fileID: 574530982}
   - {fileID: 1806480469}

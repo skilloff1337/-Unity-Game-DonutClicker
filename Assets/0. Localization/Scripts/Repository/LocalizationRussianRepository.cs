@@ -3,7 +3,7 @@ using System.IO;
 using _0._Localization.Datas;
 using UnityEngine;
 
-namespace _0._Localization.Scripts
+namespace _0._Localization.Scripts.Repository
 {
     public class LocalizationRussianRepository : ILocalizationRepository
     {

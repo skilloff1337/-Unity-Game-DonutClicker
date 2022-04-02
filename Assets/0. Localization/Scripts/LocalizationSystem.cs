@@ -13,7 +13,7 @@ namespace _0._Localization.Scripts
 {
     public class LocalizationSystem : MonoBehaviour, ILocalizationSystem
     {
-        public LanguageList currentLanguage;
+        public LanguagesType currentLanguages;
         public Image[] ImageLanguage;
         
         private ILocalizationRepository _russianRepository;
@@ -51,14 +51,14 @@ namespace _0._Localization.Scripts
 
         public string TranslateWord(string textID)
         {
-            switch (currentLanguage)
+            switch (currentLanguages)
             {
-                case LanguageList.Russian:
+                case LanguagesType.Russian:
                     if (_russianWords.TryGetValue(textID, out var russianResult))
                         return russianResult;
                     break;
                 
-                case LanguageList.English:
+                case LanguagesType.English:
                     if (_englishWords.TryGetValue(textID, out var englishResult))
                         return englishResult;
                     break;
@@ -73,10 +73,10 @@ namespace _0._Localization.Scripts
 
         public void SwitchLanguage()
         {
-            currentLanguage = currentLanguage switch
+            currentLanguages = currentLanguages switch
             {
-                LanguageList.Russian => LanguageList.English,
-                LanguageList.English => LanguageList.Russian,
+                LanguagesType.Russian => LanguagesType.English,
+                LanguagesType.English => LanguagesType.Russian,
                 _ => throw new ArgumentOutOfRangeException()
             };
             SetAutomaticText();

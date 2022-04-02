@@ -1,6 +1,6 @@
 ﻿namespace _0._Localization.Lists
 {
-    public enum ArgumentsList
+    public enum ArgumentsType
     {
         NickName,
         Level,
