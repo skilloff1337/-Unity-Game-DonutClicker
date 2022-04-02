@@ -44,8 +44,8 @@ namespace _0._Localization.Scripts
         private void LoadingLanguages()
         {
             Debug.Log("Loading Languages!");
-            _russianWords = new Dictionary<string, string>(_russianRepository.LoadWordsFromLanguage());
-            _englishWords = new Dictionary<string, string>(_englishRepository.LoadWordsFromLanguage());
+            _russianWords = _russianRepository.LoadWordsFromLanguage();
+            _englishWords = _englishRepository.LoadWordsFromLanguage();
             Debug.Log($"Loading end, english: {_englishWords.Count} russian: {_russianWords.Count}");
         }
 

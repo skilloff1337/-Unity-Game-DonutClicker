@@ -10,7 +10,6 @@ namespace _0._Localization.Datas
         public LocalizationData(string keyWord, string translate)
         {
             KeyWord = keyWord;
-            
             Translation = translate;
         }
 

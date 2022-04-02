@@ -7,15 +7,15 @@ namespace _0._Localization.Scripts
 {
     public class LocalizationEnglishRepository : ILocalizationRepository
     {
-        private const string PathEnglishFile =
+        private const string PATH_ENGLISH_FILE =
             "F:/Project/My New Project 2022/Unity Project/Donut Clicker/Clicker Donut/Assets/" +
             "0. Localization/Locales/LanguageEnglish.json";
 
-        public IDictionary<string,string> LoadWordsFromLanguage()
+        public Dictionary<string,string> LoadWordsFromLanguage()
         {
             Debug.Log("[English] Loading words...");
             var objectData = new LocalizationData();
-            var lines = File.ReadAllLines(PathEnglishFile);
+            var lines = File.ReadAllLines(PATH_ENGLISH_FILE);
             var dictionary = new Dictionary<string, string>();
             
             foreach (var line in lines)
