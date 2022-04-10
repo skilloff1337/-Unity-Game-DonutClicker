@@ -3,6 +3,10 @@ using _0._Localization.Scripts;
 using _0._Localization.Scripts.Repository;
 using _1._Logs.Scripts;
 using _1._Logs.Scripts.Interfaces;
+using _3._UI.Scripts;
+using _3._UI.Scripts.Interfaces;
+using _4._Donuts.Scripts;
+using _4._Donuts.Scripts.Interfaces;
 using UnityEngine;
 using Zenject;
 
@@ -16,10 +20,11 @@ namespace Installers
             BindEnglishRepository();
             BindRussianRepository();
             BindLogSystem();
+            BindLineInformation();
+            BindDonutConvertSystem();
         }
         private void BindLocalizationSystem()
         {
-            Debug.Log("Bind Localization System");
             Container
                 .Bind<ILocalizationSystem>()
                 .To<LocalizationSystem>()
@@ -28,7 +33,6 @@ namespace Installers
         }
         private void BindEnglishRepository()
         {
-            Debug.Log("Bind English Repository");
             Container
                 .Bind<ILocalizationRepository>()
                 .WithId("English")
@@ -37,7 +41,6 @@ namespace Installers
         }
         private void BindRussianRepository()
         {
-            Debug.Log("Bind Russian Repository");
             Container
                 .Bind<ILocalizationRepository>()
                 .WithId("Russian")
@@ -47,10 +50,26 @@ namespace Installers
 
         private void BindLogSystem()
         {
-            Debug.Log("Bind Log System");
             Container
                 .Bind<ILogSystem>()
                 .To<LogSystem>()
+                .AsSingle();
+        }
+        
+        private void BindLineInformation()
+        {
+            Container
+                .Bind<ILineInformation>()
+                .To<LineInformation>()
+                .FromComponentsInHierarchy()
+                .AsSingle();
+        }
+
+        private void BindDonutConvertSystem()
+        {
+            Container
+                .Bind<IDonutConvertSystem>()
+                .To<DonutConvertSystem>()
                 .AsSingle();
         }
     }
