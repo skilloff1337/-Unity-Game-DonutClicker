@@ -13,7 +13,6 @@ namespace _0._Localization.Scripts.Repository
         
         public Dictionary<string,string> LoadWordsFromLanguage()
         {
-            Debug.Log("[Russian] Loading words...");
             var objectData = new LocalizationData();
             var lines = File.ReadAllLines(PATH_RUSSIAN_FILE);
             var dictionary = new Dictionary<string, string>();
@@ -23,8 +22,6 @@ namespace _0._Localization.Scripts.Repository
                 JsonUtility.FromJsonOverwrite(line, objectData);
                 dictionary.Add(objectData.KeyWord, objectData.Translation);
             }
-            
-            Debug.Log("[Russian] Done.");
             return dictionary;
         }
     }
