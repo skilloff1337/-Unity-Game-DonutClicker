@@ -5,6 +5,7 @@ using _1._Logs.Scripts.Interfaces;
 using _3._UI.Scripts;
 using _3._UI.Scripts.Interfaces;
 using _4._Donuts.Scripts.Interfaces;
+using TMPro;
 using UnityEngine;
 using UnityEngine.UI;
 using Zenject;
@@ -13,6 +14,8 @@ public class TestScript : MonoBehaviour
 {
     [SerializeField] private Button buttonTest;
     [SerializeField] private Mediator mediator;
+
+    [SerializeField] private TextMeshProUGUI _textMeshProUGUI;
 
     private ILocalizationSystem _localizationSystem;
     private ILogSystem _logSystem;
@@ -40,6 +43,8 @@ public class TestScript : MonoBehaviour
         {
             Application.Quit();
         }
+
+        _textMeshProUGUI.text = $"FPS: {(int) (1f / Time.unscaledDeltaTime)}";
     }
 
     private void Test()

@@ -7,6 +7,8 @@ using _3._UI.Scripts;
 using _3._UI.Scripts.Interfaces;
 using _4._Donuts.Scripts;
 using _4._Donuts.Scripts.Interfaces;
+using _5._DataBase.Interfaces;
+using _5._DataBase.Scripts;
 using UnityEngine;
 using Zenject;
 
@@ -22,6 +24,7 @@ namespace Installers
             BindLogSystem();
             BindLineInformation();
             BindDonutConvertSystem();
+            BindPlayerData();
         }
         private void BindLocalizationSystem()
         {
@@ -70,6 +73,13 @@ namespace Installers
             Container
                 .Bind<IDonutConvertSystem>()
                 .To<DonutConvertSystem>()
+                .AsSingle();
+        }      
+        private void BindPlayerData()
+        {
+            Container
+                .Bind<IPlayerData>()
+                .To<PlayerData>()
                 .AsSingle();
         }
     }

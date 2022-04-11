@@ -1,4 +1,5 @@
-﻿using _3._UI.Scripts.Interfaces;
+﻿using System;
+using _3._UI.Scripts.Interfaces;
 using _4._Donuts.Scripts.Interfaces;
 using UnityEngine;
 using Zenject;
@@ -16,7 +17,6 @@ namespace _3._UI.Scripts
             _lineInformation = lineInformation;
             _donutConvertSystem = donutConvertSystem;
         }
-
 
         public void UpdateDonutScore(double value) => _lineInformation.UpdateDonutScore(_donutConvertSystem.ConvertNumber(value));
         public void UpdateDonateScore(double value) => _lineInformation.UpdateDonateScore(_donutConvertSystem.ConvertNumber(value));
