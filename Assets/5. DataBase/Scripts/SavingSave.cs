@@ -2,6 +2,7 @@
 using System.IO;
 using _5._DataBase.Data;
 using _5._DataBase.Interfaces;
+using Newtonsoft.Json;
 using UnityEngine;
 using Zenject;
 
@@ -10,11 +11,11 @@ namespace _5._DataBase.Scripts
     public class SavingSave : MonoBehaviour
     {
         private IPlayerData _playerData;
-        
+
         private const string PATH_SAVE_DATA =
             "F:/Project/My New Project 2022/Unity Project/Donut Clicker/Clicker Donut/Assets/" +
             "5. DataBase/DataPlayer/PlayerSave.json";
-        
+
         [Inject]
         private void Constructor(IPlayerData playerData)
         {
@@ -22,26 +23,34 @@ namespace _5._DataBase.Scripts
         }
         private void OnApplicationQuit()
         {
-            SavingFile();
+            SavingSaveFile();
         }
 
-        private void SavingFile()
+        private void SavingSaveFile()
         {
             Debug.Log($"SAVE!");
-            var save = JsonUtility.ToJson(SaveFile());
+            var save = JsonConvert.SerializeObject(SaveFile());
             File.WriteAllText(PATH_SAVE_DATA,save);
         }
 
-        private Save SaveFile()
+        private PlayerData SaveFile()
         {
-            var save = new Save();
-            save.Donut = _playerData.Donut;
-            save.Donate = _playerData.Donate;
-            save.StrengthClick = _playerData.StrengthClick;
-            save.FactorClick = _playerData.FactorClick;
-            save.DonutLevel = _playerData.DonutLevel;
-            save.Level = _playerData.Level;
-            save.Exp = _playerData.Exp;
+            var save = new PlayerData
+            {
+                Donut = _playerData.Donut,
+                Donate = _playerData.Donate,
+                StrengthClick = _playerData.StrengthClick,
+                FactorClick = _playerData.FactorClick,
+                DonutLevel = _playerData.DonutLevel,
+                Level = _playerData.Level,
+                Exp = _playerData.Exp,
+                ChanceCrit = _playerData.ChanceCrit,
+                StatisticsData =
+                {
+                    Clicks = 100, //_playerData.StatisticsData.Clicks;
+                    EnterGame = 100 //_playerData.StatisticsData.EnterGame;
+                }
+            };
             return save;
         }
     }

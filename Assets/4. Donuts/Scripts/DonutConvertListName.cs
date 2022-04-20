@@ -29,7 +29,7 @@ namespace _4._Donuts.Scripts
             "хиноктогинтиллион", "сексоктогинтиллион", "септеноктогинтиллион", "октооктогинтиллион",
             "новемоктогинтиллион", "нонагинтиллион", "уннонагинтиллион", "дуононагинтиллион", "тренонагинтиллион",
             "кваттюорнонагинтиллион", "хиннонагинтиллион", "секснонагинтиллион", "септеннонагинтиллион",
-            "октононагинтиллион", "новемнонагинтиллион", "центиллион"
+            "октононагинтиллион", "новемнонагинтиллион", "центиллион", "пончики"
         };
 
         [SuppressMessage("ReSharper", "All")]
@@ -57,7 +57,7 @@ namespace _4._Donuts.Scripts
             "quinoctogintillion", "sexoctogintillion", "septenoctogintillion", "octooctogintillion",
             "novemoctogintillion", "nonagintillion", "unnonagintillion", "duononagintillion", "trenonagintillion",
             "quattuornonagintillion", "quinnonagintillion", "sexnonagintillion", "septennonagintillion",
-            "octononagintillion", "novemnonagintillion", "centillion"
+            "octononagintillion", "novemnonagintillion", "centillion", "donuts"
         };
     }
 }

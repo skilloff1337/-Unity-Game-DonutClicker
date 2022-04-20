@@ -1,4 +1,5 @@
 ﻿using System;
+using _5._DataBase.Data;
 using _5._DataBase.Interfaces;
 
 namespace _5._DataBase.Scripts
@@ -13,5 +14,7 @@ namespace _5._DataBase.Scripts
         public int DonutLevel { get; set; }
         public int Level { get; set; }
         public double Exp { get; set; }
+        public int ChanceCrit { get; set; }
+        public StatisticsData StatisticsData { get; set; } = new StatisticsData();
     }
 }

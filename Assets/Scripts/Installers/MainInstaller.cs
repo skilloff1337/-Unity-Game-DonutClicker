@@ -25,6 +25,8 @@ namespace Installers
             BindLineInformation();
             BindDonutConvertSystem();
             BindPlayerData();
+            BindSettingsData();
+            BindMediator();
         }
         private void BindLocalizationSystem()
         {
@@ -50,7 +52,6 @@ namespace Installers
                 .To<LocalizationRussianRepository>()
                 .AsSingle();
         }
-
         private void BindLogSystem()
         {
             Container
@@ -58,7 +59,6 @@ namespace Installers
                 .To<LogSystem>()
                 .AsSingle();
         }
-        
         private void BindLineInformation()
         {
             Container
@@ -67,7 +67,6 @@ namespace Installers
                 .FromComponentsInHierarchy()
                 .AsSingle();
         }
-
         private void BindDonutConvertSystem()
         {
             Container
@@ -80,6 +79,21 @@ namespace Installers
             Container
                 .Bind<IPlayerData>()
                 .To<PlayerData>()
+                .AsSingle();
+        }    
+        private void BindSettingsData()
+        {
+            Container
+                .Bind<ISettingsData>()
+                .To<SettingsData>()
+                .AsSingle();
+        }
+        private void BindMediator()
+        {
+            Container
+                .Bind<IMediator>()
+                .To<Mediator>()
+                .FromComponentsInHierarchy()
                 .AsSingle();
         }
     }

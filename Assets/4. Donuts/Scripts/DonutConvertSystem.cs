@@ -23,6 +23,8 @@ namespace _4._Donuts.Scripts
 
         public string ConvertNumber(double value)
         {
+            if (double.IsInfinity(value))
+                return "Infinity";
             if (value == 0) 
                 return "0";
 
@@ -36,8 +38,8 @@ namespace _4._Donuts.Scripts
 
             if (value < 999) 
                 return $"{value}";
-            if (value < START_SHORT_NUMBER) 
-                return (value * isNegative).ToString("0,0,0");
+            if (value < START_SHORT_NUMBER)
+                return $"{value * isNegative:#,#,#} ";
             
             var index = -1;
             while (value >= 1000d)

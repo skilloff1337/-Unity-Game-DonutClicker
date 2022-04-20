@@ -6,7 +6,7 @@ using Zenject;
 
 namespace _3._UI.Scripts
 {
-    public class Mediator : MonoBehaviour
+    public class Mediator : MonoBehaviour, IMediator
     {
         private ILineInformation _lineInformation;
         private IDonutConvertSystem _donutConvertSystem;

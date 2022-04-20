@@ -1,4 +1,6 @@
-﻿namespace _5._DataBase.Interfaces
+﻿using _5._DataBase.Data;
+
+namespace _5._DataBase.Interfaces
 {
     public interface IPlayerData
     {
@@ -11,5 +13,8 @@
         
         public int Level{ get; set; }
         public double Exp{ get; set; }
+        public int ChanceCrit { get; set; }
+        public StatisticsData StatisticsData { get; set; }
+        
     }
 }

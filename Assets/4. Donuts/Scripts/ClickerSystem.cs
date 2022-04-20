@@ -1,49 +1,62 @@
-﻿using System;
-using _3._UI.Scripts;
-using _4._Donuts.Scripts.Interfaces;
+﻿using _4._Donuts.Scripts.Interfaces;
 using _5._DataBase.Interfaces;
 using UnityEngine;
 using UnityEngine.UI;
 using Zenject;
+using Random = UnityEngine.Random;
 
 namespace _4._Donuts.Scripts
 {
     public class ClickerSystem : MonoBehaviour
     {
-        [SerializeField] private Mediator _mediator;
+        [SerializeField] private DonutSystem donutSystem;
         [SerializeField] private GameObject prefab;
         [SerializeField] private GameObject parent;
-        
-        private Button _button;
+
         private IPlayerData _playerData;
         private IDonutConvertSystem _donutConvertSystem;
+
+        private Button _button;
+        private Animation _animation;
+
         [Inject]
         private void Constructor(IPlayerData playerData, IDonutConvertSystem donutConvertSystem)
         {
             _playerData = playerData;
             _donutConvertSystem = donutConvertSystem;
         }
+
         private void Awake()
         {
             _button = GetComponent<Button>();
             _button.onClick.AddListener(OnClickDonut);
+            _animation = GetComponent<Animation>();
         }
 
         private void OnClickDonut()
         {
             DonutsPerClick();
-            CreatePrefab();
-            _mediator.UpdateDonutScore(_playerData.Donut);
+            StartAnimation();
         }
 
         private void DonutsPerClick()
         {
-            _playerData.Donut += (_playerData.StrengthClick * _playerData.FactorClick) * _playerData.DonutLevel;
+            var obj = Instantiate(prefab, parent.transform).GetComponent<ClickerEffect>();
+            var crit = RandomCritDamage();
+            var donutPerClick = (_playerData.StrengthClick * _playerData.FactorClick) * _playerData.DonutLevel;
+
+            if (crit)
+                donutPerClick *= 2;
+
+            donutSystem.AddDonuts(donutPerClick);
+            obj.StartAnimation(_donutConvertSystem.ConvertNumber(donutPerClick), crit);
         }
-        private void CreatePrefab()
+
+        private bool RandomCritDamage() => Random.Range(0, 100) < _playerData.ChanceCrit;
+
+        private void StartAnimation()
         {
-           var obj = Instantiate(prefab,parent.transform).GetComponent<ClickerEffect>();
-           obj.StartAnimation(_donutConvertSystem.ConvertNumber(_playerData.StrengthClick * _playerData.FactorClick));
+            _animation.Play();
         }
     }
 }

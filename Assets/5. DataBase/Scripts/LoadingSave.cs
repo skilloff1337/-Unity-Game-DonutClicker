@@ -3,6 +3,8 @@ using System.IO;
 using _3._UI.Scripts;
 using _5._DataBase.Data;
 using _5._DataBase.Interfaces;
+using Newtonsoft.Json;
+//using Newtonsoft.Json;
 using UnityEngine;
 using Zenject;
 
@@ -11,7 +13,7 @@ namespace _5._DataBase.Scripts
     public class LoadingSave : MonoBehaviour
     {
 
-        [SerializeField] private Mediator _mediator;
+        private IMediator _mediator;
         private IPlayerData _playerData;
 
         private const string PATH_SAVE_DATA =
@@ -19,35 +21,37 @@ namespace _5._DataBase.Scripts
             "5. DataBase/DataPlayer/PlayerSave.json";
 
         [Inject]
-        private void Constructor(IPlayerData playerData)
+        private void Constructor(IPlayerData playerData, IMediator mediator)
         {
             _playerData = playerData;
+            _mediator = mediator;
         }
 
         private void Awake()
         {
-            LoadFile();
+            LoadSaveFile();
         }
-
-        private void LoadFile()
+        
+        private void LoadSaveFile()
         {
-            Debug.Log("LOAD");
+            if(!File.Exists(PATH_SAVE_DATA)) return;
             var lines = File.ReadAllText(PATH_SAVE_DATA);
-            var save = new Save();
-            JsonUtility.FromJsonOverwrite(lines, save);
+            var save = JsonConvert.DeserializeObject<PlayerData>(lines);
             SaveFile(save);
             UpdateTexts();
         }
-
-        private void SaveFile(Save save)
+        private void SaveFile(PlayerData player)
         {
-            _playerData.Donut = save.Donut;
-            _playerData.Donate = save.Donate;
-            _playerData.StrengthClick = save.StrengthClick;
-            _playerData.FactorClick = save.FactorClick;
-            _playerData.DonutLevel = save.DonutLevel;
-            _playerData.Level = save.Level;
-            _playerData.Exp = save.Exp;
+            _playerData.Donut = player.Donut;
+            _playerData.Donate = player.Donate;
+            _playerData.StrengthClick = player.StrengthClick;
+            _playerData.FactorClick = player.FactorClick;
+            _playerData.DonutLevel = player.DonutLevel;
+            _playerData.Level = player.Level;
+            _playerData.Exp = player.Exp;
+            _playerData.ChanceCrit = player.ChanceCrit;
+            _playerData.StatisticsData.Clicks = player.StatisticsData.Clicks;
+            _playerData.StatisticsData.EnterGame = player.StatisticsData.EnterGame;
             Debug.Log($"Loading end. {_playerData.Donut}");
         }
 

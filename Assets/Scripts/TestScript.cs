@@ -4,6 +4,7 @@ using _1._Logs.Lists;
 using _1._Logs.Scripts.Interfaces;
 using _3._UI.Scripts;
 using _3._UI.Scripts.Interfaces;
+using _4._Donuts.Scripts;
 using _4._Donuts.Scripts.Interfaces;
 using TMPro;
 using UnityEngine;
@@ -12,22 +13,25 @@ using Zenject;
 
 public class TestScript : MonoBehaviour
 {
-    [SerializeField] private Button buttonTest;
-    [SerializeField] private Mediator mediator;
+
+    private IMediator _mediator;
+    [SerializeField] private DonutSystem donutSystem;
 
     [SerializeField] private TextMeshProUGUI _textMeshProUGUI;
-
+    [SerializeField] private Button buttonTest;
+    
     private ILocalizationSystem _localizationSystem;
     private ILogSystem _logSystem;
     private IDonutConvertSystem _donutConvertSystem;
 
     [Inject]
     private void Constructor(ILocalizationSystem localizationSystem, ILogSystem logSystem,
-        IDonutConvertSystem donutConvertSystem)
+        IDonutConvertSystem donutConvertSystem, IMediator mediator)
     {
         _localizationSystem = localizationSystem;
         _logSystem = logSystem;
         _donutConvertSystem = donutConvertSystem;
+        _mediator = mediator;
     }
 
 
@@ -49,6 +53,8 @@ public class TestScript : MonoBehaviour
 
     private void Test()
     {
-        _localizationSystem.SwitchLanguage();
+        //donutSystem.DelDonuts(20);
+        _mediator.UpdateDonateScore(100);
+        //    _localizationSystem.SwitchLanguage();
     }
 }

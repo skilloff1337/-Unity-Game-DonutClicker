@@ -27,11 +27,15 @@ namespace _4._Donuts.Scripts
             transform.Translate(_randomVector * (Time.deltaTime * SPEED_NUMBER));
         }
 
-        public void StartAnimation(string strengthClick)
+        public void StartAnimation(string strengthClick,bool isCrit = false)
         {
             _text.text = $"{strengthClick}<sprite=0>";
-            _text.color = new Color(Random.Range(0f, 1f), Random.Range(0f, 1f), Random.Range(0f, 1f), 1f);
             _randomVector = new Vector2(Random.Range(-5, 5), Random.Range(-5, 5));
+            if (isCrit)
+            {
+                _text.color = new Color(1,0,0,1);
+                _text.text += "  (X2)";
+            }
         }
 
         private void RemoveObject()

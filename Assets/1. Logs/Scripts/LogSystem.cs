@@ -32,7 +32,7 @@ namespace _1._Logs.Scripts
                     File.AppendAllText(PATH_LOG + "/Loading.txt",$"{DateTime.Now} | {text} {Environment.NewLine}");
                     break;
                 case LogsType.Save:
-                    File.AppendAllText(PATH_LOG + "/Save.txt",$"{DateTime.Now} | {text} {Environment.NewLine}");
+                    File.AppendAllText(PATH_LOG + "/Player.txt",$"{DateTime.Now} | {text} {Environment.NewLine}");
                     break;
                 case LogsType.LoadingSave:
                     File.AppendAllText(PATH_LOG + "/LoadingSave.txt",$"{DateTime.Now} | {text} {Environment.NewLine}");
