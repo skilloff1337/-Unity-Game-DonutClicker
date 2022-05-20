@@ -9,6 +9,7 @@
         Setting,
         Loading,
         Save,
-        LoadingSave
+        LoadingSave,
+        Level,
     }
 }

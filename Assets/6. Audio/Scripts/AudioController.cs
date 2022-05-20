@@ -1,15 +1,15 @@
-﻿using System;
-using _5._DataBase.Interfaces;
+﻿using _5._DataBase.Interfaces;
+using _6._Audio.Interfaces;
 using UnityEngine;
 using Zenject;
 
 namespace _6._Audio.Scripts
 {
-    public class AudioController : MonoBehaviour
+    public class AudioController : MonoBehaviour, IAudioController
     {
-        [SerializeField] private AudioSource switchButtonSound;
-        [SerializeField] private AudioSource backgroundMusic;
-        [SerializeField] private AudioSource clickSound;
+        [SerializeField] private AudioSource _switchButtonSound;
+        [SerializeField] private AudioSource _backgroundMusic;
+        [SerializeField] private AudioSource _clickSound;
 
         private ISettingsData _settingsData;
 
@@ -30,15 +30,15 @@ namespace _6._Audio.Scripts
             SetSoundVolume();
         }
 
-        private void SetMusicVolume()
+        public void SetMusicVolume()
         {
-            backgroundMusic.volume = _settingsData.VolumeMusic;
+            _backgroundMusic.volume = _settingsData.VolumeMusic;
         }
 
-        private void SetSoundVolume()
+        public void SetSoundVolume()
         {
-            switchButtonSound.volume = _settingsData.VolumeSound;
-            clickSound.volume = _settingsData.VolumeSound;
+            _switchButtonSound.volume = _settingsData.VolumeSound;
+            _clickSound.volume = _settingsData.VolumeSound;
         }
     }
 }

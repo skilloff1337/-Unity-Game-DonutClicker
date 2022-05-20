@@ -1,9 +1,10 @@
 ﻿using System.Collections.Generic;
 using System.IO;
-using _0._Localization.Datas;
+using _0._Localization.Data;
+using _0._Localization.Scripts.Interfaces;
 using UnityEngine;
 
-namespace _0._Localization.Scripts
+namespace _0._Localization.Scripts.Repository
 {
     public class LocalizationEnglishRepository : ILocalizationRepository
     {

@@ -1,7 +1,6 @@
 ﻿using System.Collections.Generic;
-using _0._Localization.Lists;
 
-namespace _0._Localization.Scripts
+namespace _0._Localization.Scripts.Interfaces
 {
     public interface ILocalizationRepository
     {

@@ -1,0 +1,30 @@
+﻿namespace _14._Quests.Data
+{
+    public enum QuestsRequired
+    {
+        Donut,
+        Level,
+        Exp,
+        DonutPerSecond,
+        BuyUpgrades,
+        BuyItemsShop,
+        SpentDonut,
+        EarnedDonut,
+        TimePlayed,
+        SpentDonate,
+        Clicks,
+        ClicksCurrentSession,
+        ShopFormForBaking,
+        ShopBaker,
+        ShopFurnace,
+        ShopConfectioneryStall,
+        ShopConfectioneryShop,
+        ShopBakery,
+        ShopFactory,
+        ShopMolecularKitchen,
+        ShopLaboratory,
+        ShopStation,
+        ShopDonutHole,
+        ShopSource,
+    }
+}

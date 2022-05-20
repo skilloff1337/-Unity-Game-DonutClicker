@@ -1,12 +1,15 @@
 using System;
 using System.Collections.Generic;
 using System.Diagnostics;
-using System.Linq;
-using _0._Localization.Interfaces;
 using _0._Localization.Lists;
+using _0._Localization.Scripts.Interfaces;
+using _1._Logs.Lists;
+using _1._Logs.Scripts.Interfaces;
+using _4._Donuts.Scripts;
+using _4._Donuts.Scripts.Interfaces;
+using _5._DataBase.Interfaces;
 using TMPro;
 using UnityEngine;
-using UnityEngine.UI;
 using Zenject;
 using Debug = UnityEngine.Debug;
 
@@ -15,16 +18,13 @@ namespace _0._Localization.Scripts
 {
     public class LocalizationSystem : MonoBehaviour, ILocalizationSystem
     {
-        [SerializeField] private LanguagesType currentLanguages;
-        public LanguagesType CurrentLanguage => currentLanguages;
-        
-
-        public Sprite[] ImageLanguage;
-
-        [SerializeField] private Image _imageLanguageSelect;
-
         private ILocalizationRepository _russianRepository;
         private ILocalizationRepository _englishRepository;
+        private ISettingsData _settingsData;
+        private IPlayerData _playerData;
+        private ILogSystem _logSystem;
+        private IOfflineBonus _offlineBonus;
+        private IDonutConvertSystem _donutConvert;
 
         private Dictionary<string, string> _russianWords = new Dictionary<string, string>();
         private Dictionary<string, string> _englishWords = new Dictionary<string, string>();
@@ -36,30 +36,19 @@ namespace _0._Localization.Scripts
         [Inject]
         private void Constructor(
             [Inject(Id = "Russian")] ILocalizationRepository russianRepository,
-            [Inject(Id = "English")] ILocalizationRepository englishRepository)
+            [Inject(Id = "English")] ILocalizationRepository englishRepository, ISettingsData settingsData,
+            IPlayerData playerData, ILogSystem logSystem, IOfflineBonus offlineBonus, IDonutConvertSystem donutConvert)
         {
             _russianRepository = russianRepository;
             _englishRepository = englishRepository;
+            _settingsData = settingsData;
+            _playerData = playerData;
+            _logSystem = logSystem;
+            _offlineBonus = offlineBonus;
+            _donutConvert = donutConvert;
         }
 
-        private void Awake()
-        {
-            LoadingLanguages();
-            SetAutomaticText();
-            UpdateCurrentFlagLanguage();
-        }
-
-        private void UpdateCurrentFlagLanguage()
-        {
-            _imageLanguageSelect.sprite = currentLanguages switch
-            {
-                LanguagesType.Russian => ImageLanguage[0],
-                LanguagesType.English => ImageLanguage[1],
-                _ => throw new ArgumentOutOfRangeException()
-            };
-        }
-
-        private void LoadingLanguages()
+        public void LoadingLanguages()
         {
             Debug.Log("Loading Languages!");
             _stopwatch.Start();
@@ -71,44 +60,73 @@ namespace _0._Localization.Scripts
 
         public string TranslateWord(string textID)
         {
-            switch (currentLanguages)
+            switch (_settingsData.CurrentLanguages)
             {
                 case LanguagesType.Russian:
                     if (_russianWords.TryGetValue(textID, out var russianResult))
-                        return russianResult;
+                        return StringFormation(russianResult);
                     break;
 
                 case LanguagesType.English:
                     if (_englishWords.TryGetValue(textID, out var englishResult))
-                        return englishResult;
+                        return StringFormation(englishResult);
                     break;
 
                 default:
+                    _logSystem.AddLog(LogsType.Error,
+                        $"[LocalizationSystem] TranslateWord, textId: {textID}, language: {_settingsData.CurrentLanguages}");
                     throw new ArgumentOutOfRangeException();
             }
 
-            Debug.LogWarning($"<color=red>[Error]</color> The System not found translate for: " +
-                             $"<color=red>{textID}</color> {textID}");
+            var textError = $"<color=red>[Error]</color> The System not found translate for: " +
+                            $"<color=red>{textID}</color> Language: {_settingsData.CurrentLanguages}";
+            _logSystem.AddLog(LogsType.Error, $"[LocalizationSystem] {textError}");
             return "Unknown!";
         }
 
-        public void SwitchLanguage()
-        {
-            switch (currentLanguages)
-            {
-                case LanguagesType.Russian:
-                    currentLanguages = LanguagesType.English;
-                    break;
-                case LanguagesType.English:
-                    currentLanguages = LanguagesType.Russian;
-                    break;
-                default:
-                    throw new ArgumentOutOfRangeException();
-            }
-
-            UpdateCurrentFlagLanguage();
-            SetAutomaticText();
-        }
+        private string StringFormation(string value) => string.Format(value,
+            _playerData.Donut,
+            _playerData.Donate,
+            _playerData.LevelData.Level,
+            _playerData.LevelData.Exp,
+            _playerData.LevelData.NeedExpForNextLevel,
+            _playerData.DonutLevel,
+            _playerData.StatisticsData.Clicks,
+            _playerData.StatisticsData.ClicksCurrentSession,
+            _playerData.StatisticsData.MaxClicksPerSession,
+            _playerData.StatisticsData.BansForAntiClicker,
+            _playerData.StatisticsData.GameLogins,
+            _playerData.StatisticsData.ViewsAds,
+            _playerData.StatisticsData.CurrentPositionInLeadersBoard,
+            _playerData.StatisticsData.MaxPositionInLeadersBoard,
+            _playerData.StatisticsData.EarnedExp,
+            _playerData.StatisticsData.TotalDamage,
+            _playerData.StatisticsData.TotalDamageLevel,
+            _playerData.StatisticsData.TotalDamageUpgrade,
+            _playerData.StatisticsData.TotalDamageDonut,
+            _playerData.StatisticsData.BuyItemsInShop,
+            _playerData.StatisticsData.BuyUpgradesInShop,
+            _playerData.StatisticsData.BuyDonateInShop,
+            _playerData.StatisticsData.EarnedDonuts,
+            _playerData.StatisticsData.EarnedWithClicks,
+            _playerData.StatisticsData.EarnedWithAds,
+            _playerData.StatisticsData.EarnedWithDps,
+            _playerData.StatisticsData.EarnedWithDonate,
+            _playerData.StatisticsData.EarnedWithOffline,
+            _playerData.StatisticsData.EarnedDonate,
+            _playerData.StatisticsData.SpentDonuts,
+            _playerData.StatisticsData.SpentWithShop,
+            _playerData.StatisticsData.SpentWithUpgrade,
+            _playerData.StatisticsData.SpentDonate,
+            _playerData.StatisticsData.FirstLogin,
+            _playerData.StatisticsData.LastLogin,
+            _playerData.StatisticsData.PlayedTime.ShowTime(),
+            _playerData.StatisticsData.LongestSession.ShowTime(),
+            _offlineBonus.WasNotInTheGame(_playerData.StatisticsData.LastLogin),
+            _playerData.OfflineTime,
+            _playerData.ProfitRatio,
+            _donutConvert.ConvertNumber(_offlineBonus.CountOfflineBonus(_playerData.StatisticsData.LastLogin,
+                _playerData.OfflineTime, _playerData.ProfitRatio, _playerData.DonutPerSecond)));
 
         public void SetAutomaticText()
         {

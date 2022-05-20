@@ -1,5 +1,4 @@
-﻿using System;
-using UnityEngine;
+﻿using UnityEngine;
 using UnityEngine.UI;
 
 namespace _3._UI.Scripts
@@ -12,7 +11,7 @@ namespace _3._UI.Scripts
         private void Awake()
         {
             _panel = gameObject;
-            _button = GetComponentInChildren<Button>();
+            _button = GameObject.Find("Button_Close").GetComponent<Button>();
             _button.onClick.AddListener(HidePanel);
         }
 

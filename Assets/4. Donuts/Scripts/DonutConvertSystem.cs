@@ -1,24 +1,22 @@
 ﻿using System;
-using System.Diagnostics;
-using _0._Localization.Interfaces;
 using _0._Localization.Lists;
 using _4._Donuts.Scripts.Interfaces;
-using UnityEngine;
+using _5._DataBase.Interfaces;
 using Zenject;
 
 namespace _4._Donuts.Scripts
 {
     public class DonutConvertSystem : IDonutConvertSystem
     {
-        private ILocalizationSystem _localizationSystem;
+        private ISettingsData _settingsData;
         
         private const int START_SHORT_NUMBER = 1_000_000;
         private readonly int _massiveLength = DonutConvertListName.EnglishNameNumbers.Length - 1;
 
         [Inject]
-        private void Constructor(ILocalizationSystem localizationSystem)
+        private void Constructor(ISettingsData settingsData)
         {
-            _localizationSystem = localizationSystem;
+            _settingsData = settingsData;
         }
 
         public string ConvertNumber(double value)
@@ -51,7 +49,7 @@ namespace _4._Donuts.Scripts
                 index++;
             }
             
-            var additionallyText = _localizationSystem.CurrentLanguage switch
+            var additionallyText = _settingsData.CurrentLanguages switch
             {
                 LanguagesType.Russian => DonutConvertListName.RussianNameNumbers[index],
                 LanguagesType.English => DonutConvertListName.EnglishNameNumbers[index],

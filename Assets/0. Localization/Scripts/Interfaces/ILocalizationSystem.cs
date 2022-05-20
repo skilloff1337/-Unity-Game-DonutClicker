@@ -1,12 +1,9 @@
-﻿using _0._Localization.Lists;
-
-namespace _0._Localization.Interfaces
+﻿namespace _0._Localization.Scripts.Interfaces
 {
     public interface ILocalizationSystem
     {
         string TranslateWord(string textID);
-        void SwitchLanguage();
         void SetAutomaticText();
-        LanguagesType CurrentLanguage { get; }
+        void LoadingLanguages();
     }
 }

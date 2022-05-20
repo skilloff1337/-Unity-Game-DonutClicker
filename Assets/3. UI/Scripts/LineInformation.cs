@@ -22,11 +22,11 @@ namespace _3._UI.Scripts
         }
         public void UpdateDonutPerSeconds(string text)
         {
-            donutPerSecond.text = $"{text}<sprite=2>";
+            donutPerSecond.text = $"{text}<sprite=3>";
         }   
         public void UpdateDonutPerClick(string text)
         {
-            donutPerClick.text = $"{text}<sprite=3>";
+            donutPerClick.text = $"{text}<sprite=2>";
         }      
         public void UpdateLevelPlayer(string text)
         {

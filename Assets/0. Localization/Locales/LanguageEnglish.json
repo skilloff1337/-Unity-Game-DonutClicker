@@ -1,6 +1,3 @@
-{"KeyWord":"TEST","Translation":"Create"}
-{"KeyWord":"HELLO","Translation":"Hello"}
-{"KeyWord":"BYE","Translation":"Bye"}
 {"KeyWord":"LOADING","Translation":"Loading"}
 {"KeyWord":"SHOP","Translation":"Shop"}
 {"KeyWord":"UPGRADE","Translation":"Upgrade"}
@@ -10,3 +7,161 @@
 {"KeyWord":"ACHIEVEMENTS","Translation":"Achievements"}
 {"KeyWord":"EXIT","Translation":"Exit"}
 {"KeyWord":"CLOSE","Translation":"Close"}
+{"KeyWord":"BUY","Translation":"Buy"}
+{"KeyWord":"AWARD","Translation":"Award"}
+{"KeyWord":"REQUIRED","Translation":"Required"}
+{"KeyWord":"GET","Translation":"Get"}
+{"KeyWord":"NO_DONUTS","Translation":"There are not enough donuts in the account."}
+{"KeyWord":"TOP_PLAYERS","Translation":"Top players:"}
+{"KeyWord":"TOP_DONUT","Translation":"Donuts"}
+{"KeyWord":"TOP_CLICKS","Translation":"Clics"}
+{"KeyWord":"TOP_DPS","Translation":"Donut per second"}
+{"KeyWord":"ANTI_CLICKER_BAN","Translation":"You have ban for anti-clicker. Please dont use clicker :)"}
+{"KeyWord":"TOP_NOCONNECTION","Translation":"No connection to server..."}
+{"KeyWord":"TOOLTIP_BODY_DONUT","Translation":"The main currency<sprite=0>, for it, you can build your empire."}
+{"KeyWord":"TOOLTIP_BODY_DONATE","Translation":"Exclusive currency<sprite=1> for getting into Forbes faster."}
+{"KeyWord":"TOOLTIP_BODY_DPS","Translation":"How many donuts<sprite=0> you get per second."}
+{"KeyWord":"TOOLTIP_BODY_DPC","Translation":"How many donuts<sprite=0> you get for clicking on a donut."}
+{"KeyWord":"TOOLTIP_BODY_LEVEL","Translation":"Your level<sprite=4>, additional click power depends on the level. Your EXP [{3}/{4}]"}
+{"KeyWord":"TOOLTIP_SHOP_BAKER","Translation":"Baker. Initially brings 10<sprite=0> donuts per second, you can increase income by increasing the level of the enterprise and buying improvements."}
+{"KeyWord":"TOOLTIP_SHOP_BAKERY","Translation":"Bakery. Initially brings 10 000<sprite=0> donuts per second, you can increase income by increasing the level of the enterprise and buying improvements."}
+{"KeyWord":"TOOLTIP_SHOP_CONFECTIONERYSTALL","Translation":"Confectionery stall. Initially brings 200<sprite=0> donuts per second, you can increase income by increasing the level of the enterprise and buying improvements."}
+{"KeyWord":"TOOLTIP_SHOP_CONFECTIONERYSHOP","Translation":"Confectionery shop. Initially brings 1,000<sprite=0> donuts per second, you can increase income by increasing the level of the enterprise and buying improvements."}
+{"KeyWord":"TOOLTIP_SHOP_DONUTHOLE","Translation":"Donut Hole. Initially brings 10 000 000 000<sprite=0> donuts per second, you can increase income by increasing the level of the enterprise and buying improvements."}
+{"KeyWord":"TOOLTIP_SHOP_FACTORY","Translation":"Factory. Initially brings 500 000<sprite=0> donuts per second, you can increase income by increasing the level of the enterprise and buying improvements."}
+{"KeyWord":"TOOLTIP_SHOP_FORMFORBAKING","Translation":"Form for baking. Initially brings 1<sprite=0> donut per second, you can increase income by increasing the level of the enterprise and buying improvements."}
+{"KeyWord":"TOOLTIP_SHOP_FURNACE","Translation":"Furnace. Initially brings 50<sprite=0> donuts per second, you can increase income by increasing the level of the enterprise and buying improvements."}
+{"KeyWord":"TOOLTIP_SHOP_LABORATORY","Translation":"Laboratory. Initially brings 5 000 000<sprite=0> donuts per second, you can increase income by increasing the level of the enterprise and buying improvements."}
+{"KeyWord":"TOOLTIP_SHOP_MOLECULARKITCHEN","Translation":"Molecular kitchen. Initially brings 2 000 000<sprite=0> donuts per second, you can increase income by increasing the level of the enterprise and buying improvements."}
+{"KeyWord":"TOOLTIP_SHOP_SOURCE","Translation":"Source. Initially brings 10 000 000 000 000<sprite=0> donuts per second, you can increase income by increasing the level of the enterprise and buying improvements."}
+{"KeyWord":"TOOLTIP_SHOP_STATION","Translation":"Station. Initially brings 1 111 111 111<sprite=0> donuts per second, you can increase income by increasing the level of the enterprise and buying improvements."}
+{"KeyWord":"SETTINGS_SOUND","Translation":"Sound"}
+{"KeyWord":"SETTINGS_MUSIC","Translation":"Music"}
+{"KeyWord":"SETTINGS_VOLUME","Translation":"Volume"}
+{"KeyWord":"SETTINGS_LANGUAGE","Translation":"English"}
+{"KeyWord":"SETTINGS_NEW_NICK","Translation":"Enter new nick"}
+{"KeyWord":"SETTINGS_NICK","Translation":"Change Nick-Name"}
+{"KeyWord":"SETTINGS_NICK_EMPTY","Translation":"The nickname was entered incorrectly, the nickname must consist of letters or numbers."}
+{"KeyWord":"SETTINGS_NICK_LENGTH","Translation":"Nickname must be at least 4 characters and not more than 32."}
+{"KeyWord":"SETTINGS_NICK_CHANGE","Translation":"Nickname changed to:"}
+{"KeyWord":"STATISTICS_CLICKS","Translation":"Total donut clicks:{6}"}
+{"KeyWord":"STATISTICS_CLICKSCURRENTSESSION","Translation":"Donut clicks for the current session:{7}"}
+{"KeyWord":"STATISTICS_MAXCLICKSPERSESSION","Translation":"Maximum clicks for one session:{8}"}
+{"KeyWord":"STATISTICS_BANSFORANTICLICKER","Translation":"Bans for autoclicker:{9}"} 
+{"KeyWord":"STATISTICS_GAMELOGINS","Translation":"Total game logins:{10}"}
+{"KeyWord":"STATISTICS_VIEWSADS","Translation":"Views ads:{11}"} 
+{"KeyWord":"STATISTICS_CURRENTPOSITIONINLEADERSBOARD","Translation":"Current position in leadersboard:{12}"} 
+{"KeyWord":"STATISTICS_MAXPOSITIONINLEADERSBOARD","Translation":"Maximum position in leadersboard:{13}"} 
+{"KeyWord":"STATISTICS_EARNEDEXP","Translation":"Total earned EXP:{14}"} 
+{"KeyWord":"STATISTICS_TOTALDAMAGE","Translation":"Total damage:{15}"}
+{"KeyWord":"STATISTICS_TOTALDAMAGELEVEL","Translation":"Total damage(levels):{16}"} 
+{"KeyWord":"STATISTICS_TOTALDAMAGEUPGRADE","Translation":"Total damage(upgrades):{17}"} 
+{"KeyWord":"STATISTICS_TOTALDAMAGEDONUT","Translation":"Total damage(donut level): *{18}"} 
+{"KeyWord":"STATISTICS_BUYITEMSINSHOP","Translation":"Total buy items in shop:{19}"} 
+{"KeyWord":"STATISTICS_BUYUPGRADESINSHOP","Translation":"Total buy items in upgrade:{20}"} 
+{"KeyWord":"STATISTICS_BUYDONATEINSHOP","Translation":"Total buy items in donat shop:{21}"} 
+{"KeyWord":"STATISTICS_EARNEDDONUTS","Translation":"Total earned donuts:{22}"} 
+{"KeyWord":"STATISTICS_EARNEDWITHCLICKS","Translation":"Total earned with clicks:{23}"} 
+{"KeyWord":"STATISTICS_EARNEDWITHADS","Translation":"Total earned with ads:{24}"} 
+{"KeyWord":"STATISTICS_EARNEDWITHDPS","Translation":"Total earned with donut per second:{25}"} 
+{"KeyWord":"STATISTICS_EARNEDWITHDONATE","Translation":"Total earned with donate:{26}"} 
+{"KeyWord":"STATISTICS_EARNEDWITHOFFLINE","Translation":"Total earned with offline:{27}"} 
+{"KeyWord":"STATISTICS_EARNEDDONATE","Translation":"Total earned donate:{28}"} 
+{"KeyWord":"STATISTICS_SPENTDONUTS","Translation":"Total spent donuts:{29}"} 
+{"KeyWord":"STATISTICS_SPENTWITHSHOP","Translation":"Total spent donuts in shop:{30}"} 
+{"KeyWord":"STATISTICS_SPENTWITHUPGRADE","Translation":"Total spent donuts in upgrade:{31}"} 
+{"KeyWord":"STATISTICS_SPENTDONATE","Translation":"Total spent donates:{32}"} 
+{"KeyWord":"STATISTICS_FIRSTLOGIN","Translation":"First login:{33}"}
+{"KeyWord":"STATISTICS_LASTLOGIN","Translation":"Last login:{34}"}
+{"KeyWord":"STATISTICS_PLAYEDTIME","Translation":"PlayedTime:{35}"}
+{"KeyWord":"STATISTICS_LONGESTSESSION","Translation":"Longest session:{36}"}
+{"KeyWord":"SHOP_BAKER","Translation":"Baker"}
+{"KeyWord":"SHOP_BAKERY","Translation":"Bakery"}
+{"KeyWord":"SHOP_CONFECTIONERYSTALL","Translation":"Confectionery stall"}
+{"KeyWord":"SHOP_CONFECTIONERYSHOP","Translation":"Confectionery shop"}
+{"KeyWord":"SHOP_DONUTHOLE","Translation":"Donut Hole"}
+{"KeyWord":"SHOP_FACTORY","Translation":"Factory"}
+{"KeyWord":"SHOP_FORMFORBAKING","Translation":"Form for baking"}
+{"KeyWord":"SHOP_FURNACE","Translation":"Furnace"}
+{"KeyWord":"SHOP_LABORATORY","Translation":"Laboratory"}
+{"KeyWord":"SHOP_MOLECULARKITCHEN","Translation":"Molecular kitchen"}
+{"KeyWord":"SHOP_SOURCE","Translation":"Source"}
+{"KeyWord":"SHOP_STATION","Translation":"Station"}
+{"KeyWord":"UPGRADE_HEADER_STRENGTH_CLICK","Translation":"Increase click strength"}
+{"KeyWord":"UPGRADE_HEADER_DONUT","Translation":"Increase donut level"}
+{"KeyWord":"UPGRADE_HEADER_CHANCE_CRIT","Translation":"Increase chance crit"}
+{"KeyWord":"UPGRADE_HEADER_VALUE_CRIT","Translation":"Increase value crit"}
+{"KeyWord":"UPGRADE_HEADER_OFFLINE_PROFIT_RATIO","Translation":"Increase offline donuts"}
+{"KeyWord":"UPGRADE_HEADER_OFFLINE_TIME","Translation":"Increase offline time"}
+{"KeyWord":"UPGRADE_BODY_OFFLINE_PROFIT_RATIO","Translation":"Increases the amount of donuts received from offline (by 5%)"}
+{"KeyWord":"UPGRADE_BODY_OFFLINE_TIME","Translation":"Increases the offline time for which you received donuts (by 10 minutes)"}
+{"KeyWord":"UPGRADE_BODY_X2","Translation":"Increase income DPS"}
+{"KeyWord":"UPGRADE_BODY_CHANCE_CRIT","Translation":"Increase chance crit by 1%"}
+{"KeyWord":"UPGRADE_BODY_VALUE_CRIT","Translation":"Increase value crit by 100%"}
+{"KeyWord":"UPGRADE_BODY_PLUS2CLICK","Translation":"Increase click strength by 2 "}
+{"KeyWord":"UPGRADE_BODY_DONUT","Translation":"New donut with better click power (Increases all click income by 2x)"}
+{"KeyWord":"OFFLINEBONUS_TIME","Translation":"Wasn't in the game: {37}"}
+{"KeyWord":"OFFLINEBONUS_BONUSES","Translation":"Your bonuses:\n Available offline time {38}(minutes) \n Offline income profit {39}%"}
+{"KeyWord":"OFFLINEBONUS_DONUTS","Translation":"You earned offline:\n {40}<sprite=0>"}
+{"KeyWord":"ACHIEVEMENTS_GIVE_ACHIEVEMENTS","Translation":"You have earned achievements. \nAchievement rewarded:"}
+{"KeyWord":"ACHIEVEMENTS_HEADER_0","Translation":"Clicker"}
+{"KeyWord":"ACHIEVEMENTS_BODY_0","Translation":"Click 1,000 times"}
+{"KeyWord":"ACHIEVEMENTS_HEADER_1","Translation":"Clicker"}
+{"KeyWord":"ACHIEVEMENTS_BODY_1","Translation":"Click 10,000 times"}
+{"KeyWord":"ACHIEVEMENTS_HEADER_2","Translation":"Clicker"}
+{"KeyWord":"ACHIEVEMENTS_BODY_2","Translation":"Click 100,000 times"}
+{"KeyWord":"ACHIEVEMENTS_HEADER_3","Translation":"Clicker"}
+{"KeyWord":"ACHIEVEMENTS_BODY_3","Translation":"Click 1,000,000 times"}
+{"KeyWord":"ACHIEVEMENTS_HEADER_4","Translation":"Clicker"}
+{"KeyWord":"ACHIEVEMENTS_BODY_4","Translation":"Click 10,000,000 times"}
+{"KeyWord":"ACHIEVEMENTS_HEADER_5","Translation":"Experienced"}
+{"KeyWord":"ACHIEVEMENTS_BODY_5","Translation":"Reach level 2"}
+{"KeyWord":"ACHIEVEMENTS_HEADER_6","Translation":"Experienced"}
+{"KeyWord":"ACHIEVEMENTS_BODY_6","Translation":"Reach Level 10"}
+{"KeyWord":"ACHIEVEMENTS_HEADER_7","Translation":"Experienced"}
+{"KeyWord":"ACHIEVEMENTS_BODY_7","Translation":"Reach Level 25"}
+{"KeyWord":"ACHIEVEMENTS_HEADER_8","Translation":"Experienced"}
+{"KeyWord":"ACHIEVEMENTS_BODY_8","Translation":"Reach Level 50"}
+{"KeyWord":"ACHIEVEMENTS_HEADER_9","Translation":"Experienced"}
+{"KeyWord":"ACHIEVEMENTS_BODY_9","Translation":"Reach level 100"}
+{"KeyWord":"ACHIEVEMENTS_HEADER_10","Translation":"Forbes"}
+{"KeyWord":"ACHIEVEMENTS_BODY_10","Translation":"Account 1 Million Donuts"}
+{"KeyWord":"ACHIEVEMENTS_HEADER_11","Translation":"Forbes"}
+{"KeyWord":"ACHIEVEMENTS_BODY_11","Translation":"Account 1 Octillion Donuts"}
+{"KeyWord":"ACHIEVEMENTS_HEADER_12","Translation":"Forbes"}
+{"KeyWord":"ACHIEVEMENTS_BODY_12","Translation":"Account 1 Duoquadragyntillion donuts"}
+{"KeyWord":"ACHIEVEMENTS_HEADER_13","Translation":"Forbes"}
+{"KeyWord":"ACHIEVEMENTS_BODY_13","Translation":"Account 1 SexoctoGyntillion donuts"}
+{"KeyWord":"ACHIEVEMENTS_HEADER_14","Translation":"Forbes"}
+{"KeyWord":"ACHIEVEMENTS_BODY_14","Translation":"Account 1 Centillion Donuts"}
+{"KeyWord":"ACHIEVEMENTS_HEADER_15","Translation":"Online"}
+{"KeyWord":"ACHIEVEMENTS_BODY_15","Translation":"Spend 1 hour in the game"}
+{"KeyWord":"ACHIEVEMENTS_HEADER_16","Translation":"Onliner"}
+{"KeyWord":"ACHIEVEMENTS_BODY_16","Translation":"Spend 1 day in the game"}
+{"KeyWord":"ACHIEVEMENTS_HEADER_17","Translation":"Onliner"}
+{"KeyWord":"ACHIEVEMENTS_BODY_17","Translation":"Spend 10 days in the game"}
+{"KeyWord":"ACHIEVEMENTS_HEADER_18","Translation":"Onliner"}
+{"KeyWord":"ACHIEVEMENTS_BODY_18","Translation":"Spend 50 days in the game"}
+{"KeyWord":"ACHIEVEMENTS_HEADER_19","Translation":"Onliner"}
+{"KeyWord":"ACHIEVEMENTS_BODY_19","Translation":"Play 365 days"}
+{"KeyWord":"QUESTS_AWARD_RECEIVED","Translation":"Award Received"}
+{"KeyWord":"QUESTS_HEADER_1","Translation":"Businessman"}
+{"KeyWord":"QUESTS_BODY_1","Translation":"Start building your empire, buy from the 'Form for baking' store."}
+{"KeyWord":"QUESTS_HEADER_2","Translation":"Clicker"}
+{"KeyWord":"QUESTS_BODY_2","Translation":"Click the donut 150 times"}
+{"KeyWord":"QUESTS_HEADER_3","Translation":"Careerist"}
+{"KeyWord":"QUESTS_BODY_3","Translation":"Get level 3"}
+{"KeyWord":"QUESTS_HEADER_4","Translation":"AFK bot"}
+{"KeyWord":"QUESTS_BODY_4","Translation":"Upgrade your Donuts per Second to 50 D/S"}
+{"KeyWord":"QUESTS_HEADER_5","Translation":"Pastime"}
+{"KeyWord":"QUESTS_BODY_5","Translation":"Spend two hours in the game"}
+{"KeyWord":"QUESTS_HEADER_6","Translation":"Clicker #2"}
+{"KeyWord":"QUESTS_BODY_6","Translation":"Click the donut 1000 times in one game session"}
+{"KeyWord":"QUESTS_HEADER_7","Translation":"Spender"}
+{"KeyWord":"QUESTS_BODY_7","Translation":"Spend 100,000 Donuts"}
+{"KeyWord":"QUESTS_HEADER_8","Translation":"Customer"}
+{"KeyWord":"QUESTS_BODY_8","Translation":"Purchase 100 businesses in the store in total. (Reward until logout)"}
+{"KeyWord":"QUESTS_HEADER_9","Translation":"Career is more important"}
+{"KeyWord":"QUESTS_BODY_9","Translation":"Get level 30"}
+{"KeyWord":"QUESTS_HEADER_10","Translation":"Semi-auto-clicker"}
+{"KeyWord":"QUESTS_BODY_10","Translation":"Click the donut 50,000 times"}

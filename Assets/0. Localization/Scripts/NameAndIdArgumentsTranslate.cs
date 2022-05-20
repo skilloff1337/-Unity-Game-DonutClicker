@@ -1,0 +1,50 @@
+﻿namespace _0._Localization.Scripts
+{
+    public enum NameAndIdArgumentsTranslate
+    {
+        Donuts = 0,
+        Donate = 1,
+        Level = 2,
+        Exp = 3,
+        NeedExp = 4,
+        DonutLevel = 5,
+        Clicks = 6,
+        ClicksCurrentSession = 7,
+        MaxClicksPerSession = 8,
+        BansForAntiClicker = 9,
+        GameLogins = 10,
+        ViewsAds = 11,
+        CurrentPositionInLeadersBoard = 12,
+        MaxPositionInLeadersBoard = 13,
+        EarnedExp = 14,
+        TotalDamage = 15,
+        TotalDamageLevel = 16,
+        TotalDamageUpgrade = 17,
+        TotalDamageDonut = 18,
+        BuyItemsInShop = 19,
+        BuyUpgradesInShop = 20,
+        BuyDonateInShop = 21,
+        EarnedDonuts = 22,
+        EarnedWithClicks = 23,
+        EarnedWithAds = 24,
+        EarnedWithDps = 25,
+        EarnedWithDonate = 26,
+        EarnedWithOffline = 27,
+        EarnedDonate = 28,
+        SpentDonuts = 29,
+        SpentWithShop = 30,
+        SpentWithUpgrade = 31,
+        SpentDonate = 32,
+        FirstLogin = 33,
+        LastLogin = 34,
+        PlayedTime = 35,
+        LongestSession = 36,
+        WasNotInTheGame = 37,
+        OfflineTime = 38,
+        OfflineProfitRatio = 39,
+        OfflineEarned = 40,
+
+        COUNT
+        
+    }
+}

@@ -1,6 +1,7 @@
 ﻿using System.Collections.Generic;
 using System.IO;
-using _0._Localization.Datas;
+using _0._Localization.Data;
+using _0._Localization.Scripts.Interfaces;
 using UnityEngine;
 
 namespace _0._Localization.Scripts.Repository
@@ -13,6 +14,7 @@ namespace _0._Localization.Scripts.Repository
         
         public Dictionary<string,string> LoadWordsFromLanguage()
         {
+            Debug.Log(File.Exists(PATH_RUSSIAN_FILE));
             var objectData = new LocalizationData();
             var lines = File.ReadAllLines(PATH_RUSSIAN_FILE);
             var dictionary = new Dictionary<string, string>();

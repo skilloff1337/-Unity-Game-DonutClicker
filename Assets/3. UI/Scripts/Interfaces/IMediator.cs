@@ -1,11 +1,11 @@
-﻿namespace _3._UI.Scripts
+﻿namespace _3._UI.Scripts.Interfaces
 {
     public interface IMediator
     {
-        void UpdateDonutScore(double value);
-        void UpdateDonateScore(double value);
-        void UpdateDonutPerClick(double value);
-        void UpdateDonutPerSeconds(double value);
-        void UpdateLevelPlayer(double value);
+        void UpdateDonutScore();
+        void UpdateDonateScore();
+        void UpdateDonutPerClick();
+        void UpdateDonutPerSeconds();
+        void UpdateLevelPlayer();
     }
 }
