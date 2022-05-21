@@ -1,6 +1,7 @@
 ﻿using System;
 using System.IO;
 using System.Security.Cryptography;
+using UnityEngine;
 
 namespace _5._DataBase.Scripts.Encryption
 {
@@ -35,6 +36,7 @@ namespace _5._DataBase.Scripts.Encryption
         {
             try
             {
+                Debug.Log(pathFile);
                 var fStream = File.Open(pathFile, FileMode.OpenOrCreate);
                 var deSalg = DES.Create();
                 var cStream = new CryptoStream(fStream, deSalg.CreateDecryptor(key, iv), CryptoStreamMode.Read);

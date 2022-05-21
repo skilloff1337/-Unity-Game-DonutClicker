@@ -62,10 +62,8 @@ namespace _5._DataBase.Scripts
         public void GiveOfflineDonuts()
         {
             if (_playerData.OfflineTime <= 0 && _playerData.ProfitRatio <= 0)
-            {
-                Debug.Log($"offline time: {_playerData.OfflineTime}, pro : {_playerData.ProfitRatio}");
                 return;
-            }
+            
 
             var donuts = _offlineBonus.CountOfflineBonus(_playerData.StatisticsData.LastLogin, _playerData.OfflineTime,
                 _playerData.ProfitRatio, _playerData.DonutPerSecond);

@@ -21,7 +21,9 @@ namespace _5._DataBase.Scripts.Save
         private IStatisticsDataManager _statisticsDataManager;
         private IRepository _mongo;
 
-        private const string PATH_SAVE_DATA =
+        private string _pathSaveDataBuild;
+        
+        private const string PATH_SAVE_DATA_DEV =
             "F:/Project/My New Project 2022/Unity Project/Donut Clicker/Clicker Donut/Assets/" +
             "5. DataBase/DataPlayer/PlayerSave.json";
 
@@ -41,15 +43,26 @@ namespace _5._DataBase.Scripts.Save
             _mongo = mongo;
         }
 
-        private void OnApplicationQuit()
+        private void Awake()
         {
-            _statisticsDataManager.AllUpdateStatistics();
-            SavingSaveFile();
+            _pathSaveDataBuild = Application.dataPath + "/DataPlayer/PlayerSave.json";
         }
 
         private void Start()
         {
             StartCoroutine(AutoSave());
+        }
+
+        private void Update()
+        {
+            if (Input.GetKey("escape"))
+                Application.Quit();
+        }
+
+        private void OnApplicationQuit()
+        {
+            _statisticsDataManager.AllUpdateStatistics();
+            SavingSaveFile();
         }
 
         private void SaveMongoDataBase(PlayerData data)
@@ -68,8 +81,11 @@ namespace _5._DataBase.Scripts.Save
             var saveData = SaveFile();
             SaveMongoDataBase(saveData);
             var save = JsonConvert.SerializeObject(saveData, Formatting.Indented);
-            // Encryption.EncryptionSystem.EncryptTextToFile(save,PATH_SAVE_DATA, _encKey, _encIv);
-            File.WriteAllText(PATH_SAVE_DATA, save);
+#if UNITY_EDITOR
+            File.WriteAllText(PATH_SAVE_DATA_DEV, save);
+#else
+            Encryption.EncryptionSystem.EncryptTextToFile(save,_pathSaveDataBuild, _encKey, _encIv);
+#endif
         }
 
         private IEnumerator AutoSave()

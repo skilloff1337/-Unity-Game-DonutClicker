@@ -14,7 +14,6 @@ namespace _0._Localization.Scripts.Repository
         
         public Dictionary<string,string> LoadWordsFromLanguage()
         {
-            Debug.Log(File.Exists(PATH_RUSSIAN_FILE));
             var objectData = new LocalizationData();
             var lines = File.ReadAllLines(PATH_RUSSIAN_FILE);
             var dictionary = new Dictionary<string, string>();

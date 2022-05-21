@@ -108,3 +108,4 @@
 17.05.2022 18:58:40 | Player [Name] up level, new level -> 10 
 17.05.2022 18:59:50 | Player [Name] up level, new level -> 11 
 17.05.2022 19:01:14 | Player [Name] up level, new level -> 12 
+20.05.2022 23:24:14 | Player Player №4461 up level, new level -> 2 

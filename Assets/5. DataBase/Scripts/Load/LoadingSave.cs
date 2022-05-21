@@ -23,9 +23,12 @@ namespace _5._DataBase.Scripts.Load
         private IShopSystem _shopSystem;
         private IRepository _mongo;
 
-        private const string PATH_SAVE_DATA =
+        private string _pathSaveDataBuild;
+
+        private const string PATH_SAVE_DATA_DEV =
             "F:/Project/My New Project 2022/Unity Project/Donut Clicker/Clicker Donut/Assets/" +
             "5. DataBase/DataPlayer/PlayerSave.json";
+
         private readonly byte[] _encKey = {112, 236, 235, 117, 27, 68, 44, 189};
         private readonly byte[] _encIv = {117, 102, 112, 80, 254, 43, 48, 197};
 
@@ -43,20 +46,41 @@ namespace _5._DataBase.Scripts.Load
             _mongo = mongo;
         }
 
+        private void Awake()
+        {
+            _pathSaveDataBuild = Application.dataPath + "/DataPlayer/PlayerSave.json";
+        }
+
         public void LoadSaveFile()
         {
             _statisticsDataManager.AddGameLogins();
-            if (!File.Exists(PATH_SAVE_DATA))
+            if (string.IsNullOrEmpty(_pathSaveDataBuild))
+                _pathSaveDataBuild = Application.dataPath + "/DataPlayer/PlayerSave.json";
+            
+#if UNITY_EDITOR
+            if (!File.Exists(PATH_SAVE_DATA_DEV))
             {
                 UpdateTexts();
                 return;
             }
 
-            var lines = File.ReadAllText(PATH_SAVE_DATA);
-             //var lines = Encryption.EncryptionSystem.DecryptTextFromFile(PATH_SAVE_DATA,_encKey, _encIv);
+            var lines = File.ReadAllText(PATH_SAVE_DATA_DEV);
             var saveData = JsonConvert.DeserializeObject<PlayerData>(lines);
             LoadAccountFromDataBaseOrFile(saveData);
             UpdateTexts();
+
+#else
+            if (!File.Exists(_pathSaveDataBuild))
+            {
+                UpdateTexts();
+                return;
+            }
+
+            var lines = Encryption.EncryptionSystem.DecryptTextFromFile(_pathSaveDataBuild,_encKey, _encIv);
+            var saveData = JsonConvert.DeserializeObject<PlayerData>(lines);
+            LoadAccountFromDataBaseOrFile(saveData);
+            UpdateTexts();
+#endif
         }
 
         private void LoadAccountFromDataBaseOrFile(IPlayerData fileData)
@@ -66,11 +90,12 @@ namespace _5._DataBase.Scripts.Load
             {
                 var mongoData = _mongo.GetById(idMongo);
 
-                SaveFile(mongoData.StatisticsData.LastLogin >= fileData.StatisticsData.LastLogin ? mongoData : fileData);
+                SaveFile(mongoData.StatisticsData.LastLogin >= fileData.StatisticsData.LastLogin
+                    ? mongoData
+                    : fileData);
             }
             else
                 SaveFile(fileData);
-            
         }
 
         private void SaveFile(IPlayerData player)
@@ -88,6 +113,7 @@ namespace _5._DataBase.Scripts.Load
                 const string textError = "The system was unable to load the save";
                 _logSystem.AddLog(LogsType.Error, $"[LoadingSave] {textError} {e}");
             }
+
             _playerDataManager.GiveOfflineDonuts();
         }
 
@@ -148,7 +174,6 @@ namespace _5._DataBase.Scripts.Load
             _statisticsDataManager.AllUpdateStatistics();
 
             _playerData.StatisticsData.Clicks = player.StatisticsData.Clicks;
-            // _playerData.StatisticsData.ClicksCurrentSession = player.StatisticsData.ClicksCurrentSession;
             _playerData.StatisticsData.MaxClicksPerSession = player.StatisticsData.MaxClicksPerSession;
             _playerData.StatisticsData.BansForAntiClicker = player.StatisticsData.BansForAntiClicker;
 

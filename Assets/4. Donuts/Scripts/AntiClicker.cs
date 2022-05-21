@@ -14,8 +14,7 @@ namespace _4._Donuts.Scripts
     {
         [SerializeField] private int _timerBan;
         [SerializeField] private int _clickPerSecondForBan;
-        [SerializeField] private TextMeshProUGUI _textCPS;
-        
+
         private INotificationSystem _notification;
         private ILocalizationSystem _local;
         private IStatisticsDataManager _stats;
@@ -49,7 +48,6 @@ namespace _4._Donuts.Scripts
         {
             while (true)
             {
-                _textCPS.text = _nowClicks == 0 ? string.Empty : $"{_nowClicks}";
                 if (_nowClicks >= _clickPerSecondForBan)
                 {
                     StartCoroutine(StartBan());

@@ -79,7 +79,6 @@ namespace _4._Donuts.Scripts
                 _imageDonut = GetComponent<Image>();
             
             var idDonut = _playerData.DonutLevel - 1;
-            Debug.Log($"id {idDonut}, level {_playerData.DonutLevel}, image {_imageDonut}");
             _imageDonut.sprite = _donutsImages[idDonut];
         }
     }
