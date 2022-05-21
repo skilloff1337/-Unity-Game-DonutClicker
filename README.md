@@ -10,7 +10,7 @@ To build an empire, you have to curse a donut, and then build an empire on the a
 Казуальная игра, где требуется завоевать мир своими пончиками, что бы о ваших пончиках говорили в каждом закоулочке. 
 Что бы построить империю, придется поклилать пончик, а затем на накопленные пончики - строить империю, покупаю бизнес за бизнесом.
 
-**Dowload build version -**
+**Dowload build version - https://drive.google.com/drive/folders/1IAiWHsC1rZRixxh77TQNoU30U5_eMbU9?usp=sharing**
 ## Used technologies | Использованные технологии
 
 1. **Zenject** - Dependency Injection. 
@@ -119,3 +119,6 @@ I advise you to check it out on your own. The finished game can be downloaded fr
 **<p>RU:</p>**
 В игре осталось еще других крутых систем(таких как анти-кликер, конвертов чисел, bootstrapper, система уровня, система подсказок, система уведомлений) 
 советую ознакомиться самостоятельно. Готовую игру можно скачать по ссылке, которая рассположена в самом верху этого текста.
+
+Main menu
+![image](https://user-images.githubusercontent.com/101990183/169642450-76c8db40-bbe3-4ecc-9519-cd9b0ac1b9f1.png)
