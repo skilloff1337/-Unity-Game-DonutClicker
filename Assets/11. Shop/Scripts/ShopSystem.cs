@@ -51,6 +51,9 @@ namespace _11._Shop.Scripts
 
         public void BuyShopItem(int idItem)
         {
+            if (idItem > _items.Length)
+                return;
+            
             var price = _shopPrice.CostItem(_items[idItem].Level, _items[idItem].Price, _items[idItem].MultiplyPrice);
             if (!_playerDataManager.DelDonuts(price)) return;
 
@@ -82,9 +85,10 @@ namespace _11._Shop.Scripts
                 return;
             }
 
-            var numImage = 0;
-            foreach (var item in _items)
+
+            for (var i = 0; i < _items.Length; i++)
             {
+                var item = _items[i];
                 var price = _shopPrice.CostItem(item.Level, item.Price, item.MultiplyPrice);
                 var prefabObj = Instantiate(_prefab, _parent);
 
@@ -101,14 +105,13 @@ namespace _11._Shop.Scripts
                 textButton.text = _localizationSystem.TranslateWord(textButton.name);
 
                 var image = prefabObj.GetComponentsInChildren<Image>();
-                image[1].sprite = _iconItems[numImage];
+                image[1].sprite = _iconItems[i];
 
                 var tooltip = prefabObj.GetComponent<Tooltip>();
                 tooltip.Fabric(_tooltipSystem, _localizationSystem);
                 tooltip.BodyText = $"TOOLTIP_{item.NameTextID}";
 
                 _listPrefabs.Add(prefabObj);
-                numImage++;
             }
         }
 

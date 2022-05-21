@@ -11,8 +11,8 @@ namespace _5._DataBase.Scripts.Encryption
         {
             try
             {
-                var fStream = File.Open(pathFile, FileMode.OpenOrCreate);
-                var deSalg = DES.Create();
+                using var fStream = File.Open(pathFile, FileMode.OpenOrCreate);
+                using var deSalg = DES.Create();
                 var cStream = new CryptoStream(fStream, deSalg.CreateEncryptor(key, iv), CryptoStreamMode.Write);
                 var sWriter = new StreamWriter(cStream);
 
@@ -37,8 +37,8 @@ namespace _5._DataBase.Scripts.Encryption
             try
             {
                 Debug.Log(pathFile);
-                var fStream = File.Open(pathFile, FileMode.OpenOrCreate);
-                var deSalg = DES.Create();
+                using var fStream = File.Open(pathFile, FileMode.OpenOrCreate);
+                using var deSalg = DES.Create();
                 var cStream = new CryptoStream(fStream, deSalg.CreateDecryptor(key, iv), CryptoStreamMode.Read);
                 var sReader = new StreamReader(cStream);
 

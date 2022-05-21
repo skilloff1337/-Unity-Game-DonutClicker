@@ -23,10 +23,11 @@ namespace _12._Upgrade.Scripts.Upgrades
 
         private GameObject _prefab;
 
-        private TextMeshProUGUI _headerText;
-        private TextMeshProUGUI _bodyText;
-        private TextMeshProUGUI _levelText;
-        private TextMeshProUGUI _costText;
+        private TextMeshProUGUI[] _texts;
+        private TextMeshProUGUI HeaderText => _texts[0];
+        private TextMeshProUGUI BodyText => _texts[1];
+        private TextMeshProUGUI LevelText => _texts[2];
+        private TextMeshProUGUI CostText => _texts[3];
 
         private Button _button;
         private TextMeshProUGUI _textButton;
@@ -54,10 +55,10 @@ namespace _12._Upgrade.Scripts.Upgrades
             if (_prefab == null)
                 LoadComponentsForPrefab();
             
-            _headerText.text = _localizationSystem.TranslateWord(_shopSystem.ShopItems[_idShopItem].NameTextID);
-            _levelText.text = "lvl:" + _shopSystem.ShopItems[_idShopItem].LevelUpgrade;
-            _bodyText.text = _localizationSystem.TranslateWord("UPGRADE_BODY_X2");
-            _costText.text = _donutConvertSystem.ConvertNumber(_shopSystem.ShopItems[_idShopItem].CostUpgrade) +
+            HeaderText.text = _localizationSystem.TranslateWord(_shopSystem.ShopItems[_idShopItem].NameTextID);
+            LevelText.text = "lvl:" + _shopSystem.ShopItems[_idShopItem].LevelUpgrade;
+            BodyText.text = _localizationSystem.TranslateWord("UPGRADE_BODY_X2");
+            CostText.text = _donutConvertSystem.ConvertNumber(_shopSystem.ShopItems[_idShopItem].CostUpgrade) +
                              "<sprite=0>";
 
             _button.interactable = !(_shopSystem.ShopItems[_idShopItem].CostUpgrade > _playerData.Donut);
@@ -83,11 +84,7 @@ namespace _12._Upgrade.Scripts.Upgrades
         {
             _prefab = gameObject;
 
-            var texts = _prefab.GetComponentsInChildren<TextMeshProUGUI>();
-            _headerText = texts[0];
-            _levelText = texts[1];
-            _bodyText = texts[2];
-            _costText = texts[3];
+            _texts = _prefab.GetComponentsInChildren<TextMeshProUGUI>();
 
             _button = _prefab.GetComponentInChildren<Button>();
             _button.onClick.AddListener(BuyUpgradeShopItem);

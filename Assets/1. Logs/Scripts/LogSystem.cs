@@ -1,54 +1,40 @@
 ﻿using System;
+using System.Diagnostics;
 using System.IO;
 using _1._Logs.Lists;
 using _1._Logs.Scripts.Interfaces;
 using UnityEngine;
+using Debug = UnityEngine.Debug;
 
 namespace _1._Logs.Scripts
 {
     public class LogSystem : ILogSystem
     {
-        private const string PATH_LOG =
+        private const string PATH_LOG_DEV =
             "F:/Project/My New Project 2022/Unity Project/Donut Clicker/Clicker Donut/Assets/1. Logs/Logs";
+
+        private readonly string _pathLog = Path.Combine(Application.dataPath, "DataPlayer");
 
         public void AddLog(LogsType logsType, string text)
         {
-            switch (logsType)
+            var nameFile = logsType switch
             {
-                case LogsType.Unknown:
-                    File.AppendAllText(PATH_LOG + "/Unknown.txt", $"{DateTime.Now} | {text} {Environment.NewLine}");
-                    break;
-                case LogsType.System:
-                    File.AppendAllText(PATH_LOG + "/System.txt", $"{DateTime.Now} | {text} {Environment.NewLine}");
-                    break;
-                case LogsType.Information:
-                    File.AppendAllText(PATH_LOG + "/Information.txt", $"{DateTime.Now} | {text} {Environment.NewLine}");
-                    break;
-                case LogsType.Error:
-                    File.AppendAllText(PATH_LOG + "/Error.txt", $"{DateTime.Now} | {text} {Environment.NewLine}");
-                    break;
-                case LogsType.Setting:
-                    File.AppendAllText(PATH_LOG + "/Setting.txt", $"{DateTime.Now} | {text} {Environment.NewLine}");
-                    break;
-                case LogsType.Loading:
-                    File.AppendAllText(PATH_LOG + "/Loading.txt", $"{DateTime.Now} | {text} {Environment.NewLine}");
-                    break;
-                case LogsType.Save:
-                    File.AppendAllText(PATH_LOG + "/Player.txt", $"{DateTime.Now} | {text} {Environment.NewLine}");
-                    break;
-                case LogsType.LoadingSave:
-                    File.AppendAllText(PATH_LOG + "/LoadingSave.txt", $"{DateTime.Now} | {text} {Environment.NewLine}");
-                    break;
-                case LogsType.Level:
-                    File.AppendAllText(PATH_LOG + "/Level.txt", $"{DateTime.Now} | {text} {Environment.NewLine}");
-                    break;
-                default:
-                    File.AppendAllText(PATH_LOG + "/Error.txt",
-                        $"{DateTime.Now} | UNDEFINED TYPE: {logsType}, text: {text} {Environment.NewLine}");
-                    Debug.LogError($"ERROR! UNDEFINED TYPE: <color=red>{logsType}</color>");
-                    break;
-            }
-
+                LogsType.Unknown => "Unknown.txt",
+                LogsType.System => "System.txt",
+                LogsType.Information => "Information.txt",
+                LogsType.Error => "Error.txt",
+                LogsType.Setting => "Setting.txt",
+                LogsType.Loading => "Loading.txt",
+                LogsType.Save => "Player.txt",
+                LogsType.LoadingSave => "LoadingSave.txt",
+                LogsType.Level => "Level.txt",
+                _ => "Error.txt"
+            };
+#if UNITY_EDITOR
+            File.AppendAllText(Path.Combine(PATH_LOG_DEV, nameFile), $"{DateTime.Now} | {text} {Environment.NewLine}");
+#else
+            File.AppendAllText(Path.Combine(_pathLog, nameFile), $"{DateTime.Now} | {text} {Environment.NewLine}");
+#endif
             Debug.Log($"{logsType} | {text}");
         }
     }

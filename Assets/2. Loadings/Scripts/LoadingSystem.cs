@@ -1,6 +1,9 @@
-﻿using System.Collections;
+﻿using System;
+using System.Collections;
 using System.Diagnostics;
 using _0._Localization.Scripts.Interfaces;
+using _1._Logs.Lists;
+using _1._Logs.Scripts.Interfaces;
 using _10._Statistics.Scripts;
 using _11._Shop.Scripts;
 using _12._Upgrade.Scripts;
@@ -8,7 +11,6 @@ using _13._Achievements.Scripts;
 using _14._Quests.Scripts;
 using _4._Donuts.Scripts;
 using _5._DataBase.Interfaces;
-using _5._DataBase.Scripts;
 using _5._DataBase.Scripts.Load;
 using TMPro;
 using UnityEngine;
@@ -38,6 +40,7 @@ namespace _2._Loadings.Scripts
         private IShopSystem _shopSystem;
         private ILocalizationSystem _local;
         private IPlayerData _playerData;
+        private ILogSystem _logSystem;
 
         private Slider _slider;
 
@@ -46,11 +49,13 @@ namespace _2._Loadings.Scripts
 
 
         [Inject]
-        private void Constructor(IShopSystem shopSystem, ILocalizationSystem local, IPlayerData playerData)
+        private void Constructor(IShopSystem shopSystem, ILocalizationSystem local, IPlayerData playerData,
+            ILogSystem logSystem)
         {
             _shopSystem = shopSystem;
             _local = local;
             _playerData = playerData;
+            _logSystem = logSystem;
         }
 
         private void Awake()
@@ -61,22 +66,31 @@ namespace _2._Loadings.Scripts
 
         private void LoadingGame()
         {
-            _stopwatch.Restart();
-            Debug.Log($"<color=red>LOADING GAME START:</color>");
+            try
+            {
+                _stopwatch.Restart();
+                Debug.Log($"<color=red>LOADING GAME START:</color>");
 
-            LoadingSettingsData();
-            LoadingSaveData();
-            LoadingLocalization();
-            LoadingShop();
-            LoadingUpgrades();
-            LoadingQuests();
-            LoadingStatistics();
-            LoadingAchievements();
-            LoadingSpriteDonut();
-            LoadingTranslation();
+                LoadingSettingsData();
+                LoadingSaveData();
+                LoadingLocalization();
+                LoadingShop();
+                LoadingUpgrades();
+                LoadingQuests();
+                LoadingStatistics();
+                LoadingAchievements();
+                LoadingSpriteDonut();
+                LoadingTranslation();
 
-            _stopwatch.Stop();
-            Debug.Log($"<color=red>LOADING GAME END, ELAPSED: {_stopwatch.Elapsed}:</color>");
+                _stopwatch.Stop();
+                Debug.Log($"<color=red>LOADING GAME END, ELAPSED: {_stopwatch.Elapsed}:</color>");
+            }
+            catch (Exception e)
+            {
+                _logSystem.AddLog(LogsType.Error, "There was an error loading the game, please report the error to the developer!" + e);
+                Console.WriteLine(e);
+                Environment.Exit(0);
+            }
         }
 
         private void Start()
