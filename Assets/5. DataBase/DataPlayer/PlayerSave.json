@@ -65,7 +65,7 @@
     "TotalDamageUpgrade": 0.0,
     "TotalDamageDonut": 0.0,
     "BuyItemsInShop": 9.0,
-    "BuyUpgradesInShop": 0.0,
+    "BuyUpgradesInShop": 1.0,
     "BuyDonateInShop": 0.0,
     "BuyFormForBaking": 0.0,
     "BuyBaker": 0.0,
@@ -79,31 +79,31 @@
     "BuyStation": 0.0,
     "BuyDonutHole": 0.0,
     "BuySource": 9.0,
-    "EarnedDonuts": 1.7192400000939985E+26,
+    "EarnedDonuts": 1.7192400006717225E+26,
     "EarnedWithClicks": 1.9240000000000116E+24,
     "EarnedWithAds": 0.0,
-    "EarnedWithDps": 1.7000000000939878E+26,
+    "EarnedWithDps": 1.7000000006717117E+26,
     "EarnedWithDonate": 0.0,
     "EarnedWithOffline": 0.0,
     "EarnedDonate": 0.0,
     "SpentDonuts": 4.09E+29,
     "SpentWithShop": 4.09E+29,
-    "SpentWithUpgrade": 0.0,
+    "SpentWithUpgrade": 100000000.0,
     "SpentDonate": 0.0,
     "FirstLogin": "2022-05-21T10:34:50.3926703+03:00",
-    "LastLogin": "2022-05-21T13:31:20.6910429+03:00",
-    "EnterLogin": "2022-05-21T13:31:13.2312536+03:00",
+    "LastLogin": "2022-05-29T16:28:53.7605809+03:00",
+    "EnterLogin": "2022-05-29T16:28:42.4712498+03:00",
     "PlayedTime": {
       "Days": 0,
       "Hours": 0,
-      "Minutes": 3,
-      "Seconds": 14
+      "Minutes": 15,
+      "Seconds": 5
     },
     "LongestSession": {
       "Days": 0,
       "Hours": 0,
-      "Minutes": 0,
-      "Seconds": 59
+      "Minutes": 5,
+      "Seconds": 7
     }
   },
   "ShopData": [
@@ -130,9 +130,9 @@
       "Level": 0.0,
       "Price": 300.0,
       "DonutPerSecond": 10.0,
-      "FactorDonutPerSec": 1.0,
-      "LevelUpgrade": 0.0,
-      "CostUpgrade": 100000.0,
+      "FactorDonutPerSec": 3.0,
+      "LevelUpgrade": 1.0,
+      "CostUpgrade": 100000000.0,
       "MultiplyPrice": 2.0,
       "name": "Baker",
       "hideFlags": 0

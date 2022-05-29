@@ -25,11 +25,13 @@ namespace _5._DataBase.Scripts.Load
 
         private void Awake()
         {
-            _pathSettingsDataBuild = Application.dataPath + "/DataPlayer/PlayerSettings.json";
+            _pathSettingsDataBuild = Path.Combine(Application.dataPath, "DataPlayer","PlayerSettings.json");
         }
 
         public void LoadSettingsFile()
         {
+            if (string.IsNullOrEmpty(_pathSettingsDataBuild))
+                _pathSettingsDataBuild = Path.Combine(Application.dataPath, "DataPlayer","PlayerSettings.json");
 #if UNITY_EDITOR
             if (!File.Exists(PATH_SETTINGS_DATA)) return;
             var lines = File.ReadAllText(PATH_SETTINGS_DATA);

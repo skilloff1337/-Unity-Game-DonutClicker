@@ -48,14 +48,14 @@ namespace _5._DataBase.Scripts.Load
 
         private void Awake()
         {
-            _pathSaveDataBuild = Application.dataPath + "/DataPlayer/PlayerSave.json";
+            _pathSaveDataBuild = Path.Combine(Application.dataPath, "DataPlayer","PlayerSave.json");
         }
 
         public void LoadSaveFile()
         {
             _statisticsDataManager.AddGameLogins();
             if (string.IsNullOrEmpty(_pathSaveDataBuild))
-                _pathSaveDataBuild = Application.dataPath + "/DataPlayer/PlayerSave.json";
+                _pathSaveDataBuild = Path.Combine(Application.dataPath, "DataPlayer","PlayerSave.json");
             
 #if UNITY_EDITOR
             if (!File.Exists(PATH_SAVE_DATA_DEV))

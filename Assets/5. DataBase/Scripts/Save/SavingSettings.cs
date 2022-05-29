@@ -25,7 +25,7 @@ namespace _5._DataBase.Scripts.Save
 
         private void Awake()
         {
-            _pathSettingsDataBuild = Application.dataPath + "/DataPlayer/PlayerSettings.json";
+            _pathSettingsDataBuild = Path.Combine(Application.dataPath, "DataPlayer","PlayerSettings.json");
         }
 
         private void OnApplicationQuit()

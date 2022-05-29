@@ -11,7 +11,7 @@ namespace _0._Localization.Scripts.Repository
         private const string PATH_RUSSIAN_FILE_DEV =
             "F:/Project/My New Project 2022/Unity Project/Donut Clicker/Clicker Donut/Assets/" +
             "0. Localization/Locales/LanguageRussian.json";
-        private readonly string _pathRussianFile = Path.Combine(Application.dataPath,"DataPlayer", "LanguageEnglish.json");
+        private readonly string _pathRussianFile = Path.Combine(Application.dataPath,"DataPlayer", "LanguageRussian.json");
         
         public Dictionary<string,string> LoadWordsFromLanguage()
         {

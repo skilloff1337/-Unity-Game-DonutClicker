@@ -14,7 +14,7 @@ MonoBehaviour:
   m_EditorClassIdentifier: 
   IdAchievemets: 19
   Quality: 3
-  NameAchievements: "\u211618"
+  NameAchievements: "\u211619"
   HeaderTextID: ACHIEVEMENTS_HEADER_19
   BodyTextID: ACHIEVEMENTS_BODY_19
   CompletingPoints: 50

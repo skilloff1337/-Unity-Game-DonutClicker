@@ -25,8 +25,8 @@ namespace _12._Upgrade.Scripts.Upgrades
 
         private TextMeshProUGUI[] _texts;
         private TextMeshProUGUI HeaderText => _texts[0];
-        private TextMeshProUGUI BodyText => _texts[1];
-        private TextMeshProUGUI LevelText => _texts[2];
+        private TextMeshProUGUI LevelText => _texts[1];
+        private TextMeshProUGUI BodyText => _texts[2];
         private TextMeshProUGUI CostText => _texts[3];
 
         private Button _button;

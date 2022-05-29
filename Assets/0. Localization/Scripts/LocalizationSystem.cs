@@ -50,6 +50,9 @@ namespace _0._Localization.Scripts
 
         public void LoadingLanguages()
         {
+            if (_russianWords.Count != 0 && _englishWords.Count != 0)
+                return;
+            
             Debug.Log("Loading Languages!");
             _stopwatch.Start();
             _russianWords = _russianRepository.LoadWordsFromLanguage();
@@ -131,6 +134,8 @@ namespace _0._Localization.Scripts
         public void SetAutomaticText()
         {
             _stopwatch.Restart();
+            if (_russianWords.Count == 0)
+                LoadingLanguages();
             if (_needTranslationTexts.Count == 0)
                 FindAndAddTextsInList();
 
